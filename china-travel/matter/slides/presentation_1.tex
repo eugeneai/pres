@@ -101,7 +101,7 @@ Matrosov Institute for System Dynamics and Control Theory,\\ Siberian Branch of 
 \small \date{October 2019}
 
 \newif\ifshowtoc
-\showtoctrue% toggles to show the toc
+\showtocfalse% toggles to show the toc
 \AtBeginSection{%
 \ifshowtoc
 \begin{frame}
@@ -131,7 +131,7 @@ Matrosov Institute for System Dynamics and Control Theory,\\ Siberian Branch of 
 \begin{frame}
 \frametitle{Motivation}
 \begin{itemize}
-\item About arbitrary spreadsheet tables 
+\item About arbitrary spreadsheet tables
 \begin{itemize}
 	\item A large volume of valuable data for science and business applications
 	\item A big variety of layout, style, and content features
@@ -157,7 +157,7 @@ Matrosov Institute for System Dynamics and Control Theory,\\ Siberian Branch of 
 \bigskip
 
 \begin{enumerate}
-	\item \textbf{Extraction} --- detecting a table and recognizing the physical structure of its cells 
+	\item \textbf{Extraction} --- detecting a table and recognizing the physical structure of its cells
 	\item \textbf{Role analysis} --- extracting functional data items from cell content
 	\item \textbf{Structural analysis} --- recovering internal relationships between extracted functional data items
 	\item \textbf{Interpretation} --- linking extracted functional data items with external vocabularies (general-purpose or domain-specific ontologies)
@@ -202,7 +202,7 @@ The projects with goals similar to ours
 \item \footnotesize{\textbf{DeExcelerator}\footnote{\url{https://wwwdb.inf.tu-dresden.de/research-projects/deexcelarator}} (Dresden Database Systems Group, TU Dresden) \textit{2013 -- 2019}}
 \begin{itemize}
 \item \scriptsize{ML-based layout identification}~\cite{Koci2016}
-\item \scriptsize{Heuristics-based role and structural analysis (pre-defined functional cell regions) \cite{Koci2017,Koci2018}} 
+\item \scriptsize{Heuristics-based role and structural analysis (pre-defined functional cell regions) \cite{Koci2017,Koci2018}}
 \end{itemize}
 \end{enumerate}
 
@@ -243,13 +243,13 @@ The projects with goals similar to ours
 \begin{frame}
 \frametitle{User-Defined Rules}
 \begin{itemize}
-\item The user-defined rules map the physical structure into the logical structure of a table 
+\item The user-defined rules map the physical structure into the logical structure of a table
 \begin{itemize}
 \item \textbf{WHEN-part} queries facts about the structure by using constraints
 \item \textbf{THEN-part} modifies available facts and asserted new ones
 \end{itemize}
 \item The facts are represented by items of the \emph{table object model}
-\item The rules can be expressed in a rule-based language 
+\item The rules can be expressed in a rule-based language
 (e.g. Drools\footnote{\url{https://www.drools.org}}, Jess\footnote{\url{https://jessrules.com}}, or CRL\footnote{\url{https://github.com/tabbydoc/tabbyxl/wiki/crl-language}})
 \end{itemize}
 \end{frame}
@@ -267,7 +267,7 @@ The projects with goals similar to ours
 \small Cells characterized by layout, style, and content features
 \end{block}
 \begin{block}{\small Logical Layer}
-\small Functional data items and their relationships: 
+\small Functional data items and their relationships:
 \begin{itemize}
 	\item \small entries (values)
 	\item \small labels (keys)
@@ -291,7 +291,7 @@ The projects with goals similar to ours
 \frametitle{CRL Grammar}
 
 \begin{figure}
-\includegraphics[width=0.75\linewidth]{bnf}	
+\includegraphics[width=0.75\linewidth]{bnf}
 \end{figure}
 \end{frame}
 
@@ -401,7 +401,7 @@ The actions serve to recover label-category pairs
 
 \scriptsize{The transformation of arbitrary tables with the same layout features (\textit{a} and \textit{c}) to their canonicalized versions (\textit{b} and \textit{d})}
 \begin{figure}
-\includegraphics[width=0.7\linewidth]{illustrative_example}	
+\includegraphics[width=0.7\linewidth]{illustrative_example}
 \end{figure}
 
 \scriptsize{The ruleset for the cell cleansing (\textit{a}), role analysis (\textit{b}, \textit{c}), structural analysis (\textit{d}, \textit{e}), and interpretation (\textit{f}, \textit{g})}
@@ -444,7 +444,7 @@ The actions serve to recover label-category pairs
 \column{.55\textwidth}
 \small Workflow for generating a Maven-project of a spreadsheet data transformation program
 \begin{figure}
-\includegraphics[width=0.95\linewidth]{crl2j_wf_part1}	
+\includegraphics[width=0.95\linewidth]{crl2j_wf_part1}
 \end{figure}
 
 \column{.05\textwidth}
@@ -453,7 +453,7 @@ The actions serve to recover label-category pairs
 \column{.4\textwidth}
 \small Workflow for translating a CRL ruleset to Java source code
 \begin{figure}
-\includegraphics[width=0.95\linewidth]{crl2j_wf_part2}	
+\includegraphics[width=0.95\linewidth]{crl2j_wf_part2}
 \end{figure}
 \end{columns}
 \end{frame}
@@ -466,14 +466,14 @@ The actions serve to recover label-category pairs
 \small{\centerline{In the Workflow}}
 
 \begin{figure}
-\includegraphics[width=0.65\linewidth]{rom_in_wf.eps}	
+\includegraphics[width=0.65\linewidth]{rom_in_wf.eps}
 \end{figure}
 
 \column{.7\textwidth}
 \small{\centerline{Rule Object Model}}
 
 \begin{figure}
-\includegraphics[width=0.8\linewidth]{rulemodel}	
+\includegraphics[width=0.8\linewidth]{rulemodel}
 \end{figure}
 \end{columns}
 
@@ -528,10 +528,10 @@ Iterator<CCell> iterator1 = getTable().getCells();
         \def\arraystretch{1.5}
 				\begin{tabular}{|l|c|c|c|c|}
 						\hline
-														& \multicolumn{2}{|c|}{Role analysis} & \multicolumn{2}{|c|}{Structural analysis} \\ 
-														\cline{2-5} 
-														& \multicolumn{4}{|c|}{Type of instances} \\ 
-														\cline{2-5} 
+														& \multicolumn{2}{|c|}{Role analysis} & \multicolumn{2}{|c|}{Structural analysis} \\
+														\cline{2-5}
+														& \multicolumn{4}{|c|}{Type of instances} \\
+														\cline{2-5}
 			            Metrics   & entries                      & labels                     & entry-label pairs            & label-label pairs  \\
 			      \hline
 			            Recall    & 0.9813 $\frac{16602}{16918}$ & 0.9965 $\frac{4842}{4859}$ & 0.9773 $\frac{34270}{35066}$ & 0.9389 $\frac{1951}{2078}$ \\
@@ -572,8 +572,8 @@ Iterator<CCell> iterator1 = getTable().getCells();
         \def\arraystretch{1.5}
 				\begin{tabular}{|l|c|c|c|}
 						\hline
-									Running time of             & CRL2J   & Drools  & Jess     \\ 
-						\hline														
+									Running time of             & CRL2J   & Drools  & Jess     \\
+						\hline
 									Ruleset preparation ($t_1$) & 2108* ms & $1711^\dagger$ ms & $432^\dagger$  ms \\
                   Ruleset execution ($t_2$)   & 367** ms & $1974^\ddagger$ ms & $4149^\ddagger$ ms \\
 			      \hline
@@ -626,7 +626,7 @@ For testing, we used 3.2 GHz 4-core CPU
 \frametitle{Application Experience}
 Populating a web-based statistical atlas of the Irkutsk region --- (\textit{b}) via extracting data from government statistical reports --- (\textit{a})
 \begin{figure}
-\includegraphics[width=1\linewidth]{application1}	
+\includegraphics[width=1\linewidth]{application1}
 \end{figure}
 \tiny{The more detail can be found at \url{https://github.com/tabbydoc/tabbyxl/wiki/statistical-atlas}}
 \end{frame}
@@ -635,7 +635,7 @@ Populating a web-based statistical atlas of the Irkutsk region --- (\textit{b}) 
 \frametitle{Application Experience}
 Generating conceptual models --- (\textit{b}) from arbitrary tables presented in industrial safety inspection reports --- (\textit{a})
 \begin{figure}
-\includegraphics[width=1\linewidth]{application2}	
+\includegraphics[width=1\linewidth]{application2}
 \end{figure}
 \tiny{The more detail can be found at \url{https://github.com/tabbydoc/tabbyxl/wiki/industrial-safety-inspection}}
 \end{frame}
@@ -664,7 +664,7 @@ Generating conceptual models --- (\textit{b}) from arbitrary tables presented in
 \begin{itemize}
 \item Rearrangement of cell structure by using visual (human-readable) cells
 \item Detecting derived data by spreadsheet formulas
-\item Enriching the table analysis by named entity recognition 
+\item Enriching the table analysis by named entity recognition
 \item Linking extracted data items with LOD cloud
 \end{itemize}
 \end{itemize}
@@ -693,4 +693,4 @@ Generating conceptual models --- (\textit{b}) from arbitrary tables presented in
 
 %----------------------------------------------------------------------------------------
 
-\end{document} 
+\end{document}
