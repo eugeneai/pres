@@ -2,11 +2,13 @@
 
 LATEXMK=latexmk -lualatex -latexoption=-shell-escape
 
+TARGET=talk-mda-lod-2019-12-zh-cn
+
 run: present
 
-present: talk-mda-lod-arch-2019-08-03.pdf
+present: $(TARGET).pdf
 
-talk-mda-lod-arch-2019-08-03.pdf: talk-mda-lod-arch-2019-08-03.tex
+$(TARGET).pdf: $(TARGET).tex
 	$(LATEXMK) $<
 
 clean:

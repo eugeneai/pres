@@ -97,14 +97,13 @@
 \setbeamercolor{background canvas}{bg=white}
 
 \title[Model Driven Architecture Implementation using Linked Data]{Model Driven Architecture Implementation using Linked Data and Digital Archives}
-\author[E.~Cherkashin, A.~Kopaygorodsky, L.~Kazi, A.~Shigarov, V.~Paramonov]{\bfseries%
-  \underline{Evgeny Cherkashin${}^*$}, Alexey Kopaygorodsky, Ljubica Kazi, Alexey Shigarov, Viacheslav Paramonov}
-\institute{\normalsize Matrosov Institute for System Dynamics and Control Theory of Siberian Branch of Russian Academy of Sciences, Irkutsk, Russia\\ University of Novi Sad, Technical faculty <<Mihajlo Pupin>>, Zrenjanin, Serbia\\[1em]
-${}^*$\email{\href{mailto:eugeneai@icc.ru}{eugeneai@icc.ru}}%
+\author[E.~Cherkashin, et al]{\bfseries%
+  Evgeny Cherkashin}
+\institute{\normalsize Matrosov Institute for System Dynamics and Control Theory of Siberian Branch of Russian Academy of Sciences, Irkutsk, Russia\\%
+  \email{\href{mailto:eugeneai@icc.ru}{eugeneai@icc.ru}}%
 }
-\date[2018]{{}\\
-The 3${}^\text{th}$ August 2019\\
-Irkutsk, Russia
+\date[2018]{2019, December\\
+China
 }
 %\date{\today}
 \maketitle
@@ -119,19 +118,19 @@ Irkutsk, Russia
   \item generation of documents and user interfaces with LOD markup.
   \end{enumerate}
 \end{frame}
-\begin{frame}
-  \frametitle{Related technologies and standards}
-  \begin{itemize}
-  \item The most widely used technologies \textbf{ATL} and its predecessor QVT, an OMG standard; developed for XMI to XMI conversion;
-  \item Usage of ATL trending to shift to CIM level, \emph{e.g.}, BPMN diagram is converted into set of UML diagrams (PIM); used for construction web-applications, CIM is represented with State and Use case UML-Diagrams.
-  \item MDA usage is widening, \emph{e.g.}, for analysis of security aspects of distributed application with logical inference over MDA represented model;
-  \item UML is used as CIM/PIM in modeling vocabularies (ontologies); there is an OMG standard specification;
-  \item XML specifications are used to describe services, \emph{e.g.} WSDL, WS-BPEL;
-  \item MDA is opposed to conceptual programming by Enn Tyugu.
-  \end{itemize}
+% \begin{frame}
+%   \frametitle{Related technologies and standards}
+%   \begin{itemize}
+%   \item The most widely used technologies \textbf{ATL} and its predecessor QVT, an OMG standard; developed for XMI to XMI conversion;
+%   \item Usage of ATL trending to shift to CIM level, \emph{e.g.}, BPMN diagram is converted into set of UML diagrams (PIM); used for construction web-applications, CIM is represented with State and Use case UML-Diagrams.
+%   \item MDA usage is widening, \emph{e.g.}, for analysis of security aspects of distributed application with logical inference over MDA represented model;
+%   \item UML is used as CIM/PIM in modeling vocabularies (ontologies); there is an OMG standard specification;
+%   \item XML specifications are used to describe services, \emph{e.g.} WSDL, WS-BPEL;
+%   \item MDA is opposed to conceptual programming by Enn Tyugu.
+%   \end{itemize}
 
-  We describe transformation in Logtalk, representing CIM, PIM and PSM as RDF graphs, allowing non-XMI sources to be used, organizing multi-stage modular transformations.
-\end{frame}
+%   We describe transformation in Logtalk, representing CIM, PIM and PSM as RDF graphs, allowing non-XMI sources to be used, organizing multi-stage modular transformations.
+% \end{frame}
 \begin{frame}
   \frametitle{Logtalk as transformation definition language}
   We have chosen Logtalk as it
@@ -146,20 +145,20 @@ Irkutsk, Russia
   \end{itemize}
   The <<regular>> language allow us to use its libraries not directly related to MDA transformations.
 \end{frame}
-\begin{frame}[fragile]
-  \frametitle{Semantic Web technologies in representation of models
-    during transformation}
-  \begin{itemize}
-  \item Assimilates experience of domain basic researches trending to standardization;
-  \item Regular set of triples denote a graph (T-Box, A-Box);
-  \item Standard vocabularies are formally described (\verb|rdfs:domain|, \verb|rdfs:range|);
-  \item Supported with most programming systems (libraries, inference engines, SPARQL);
-  \item RDF has a way of global element identification, \emph{i.e.} we can refer the same object from different software systems;
-  \item SWI-Prolog supports direct queries to a graph, as well as interpreting some predicates (\verb|rdfs:label|, \verb|dc:title|), wraps sparse RDF structure into a predicate arguments; ontological server ClioPatria;
-  \item There is simple way of data security implementation (\verb|rdfs:seeAlso|);
-  \item By means of Semantic Web \& LOD we are able to organize data transfer between heterogeneous information systems.
-  \end{itemize}
-\end{frame}
+% \begin{frame}[fragile]
+%   \frametitle{Semantic Web technologies in representation of models
+%     during transformation}
+%   \begin{itemize}
+%   \item Assimilates experience of domain basic researches trending to standardization;
+%   \item Regular set of triples denote a graph (T-Box, A-Box);
+%   \item Standard vocabularies are formally described (\verb|rdfs:domain|, \verb|rdfs:range|);
+%   \item Supported with most programming systems (libraries, inference engines, SPARQL);
+%   \item RDF has a way of global element identification, \emph{i.e.} we can refer the same object from different software systems;
+%   \item SWI-Prolog supports direct queries to a graph, as well as interpreting some predicates (\verb|rdfs:label|, \verb|dc:title|), wraps sparse RDF structure into a predicate arguments; ontological server ClioPatria;
+%   \item There is simple way of data security implementation (\verb|rdfs:seeAlso|);
+%   \item By means of Semantic Web \& LOD we are able to organize data transfer between heterogeneous information systems.
+%   \end{itemize}
+% \end{frame}
 \begin{frame}
   \frametitle{Linked Open Data, LOD}
   \begin{enumerate}
@@ -338,83 +337,83 @@ render(Result):-         % Source generator
   % \end{multicols}
 \end{frame}
 
-\begin{frame}[fragile]
-  \frametitle{Logtalk Categories}
-  A category of named entities
-\begin{minted}[fontsize=\scriptsize]{logtalk}
-:- category(named).
-:- public([name/1, render/1]).
-:- protected([renderitem/2]).
-name(Name):- ::prepend(name(Name)).
-renderitem(name(Name), String):-!, atom_string(Name, String).
-render(String):-  % What is code generation from items
-    ::item(name(Name)), ::renderitem(name(Name), String).
-:-end_category.
-\end{minted}
-Category of named and typed entities
-\begin{minted}[fontsize=\scriptsize]{logtalk}
-:- category(namedtyped, extends(named)).
-:- public([type/1,render/2, separator_option/2,list_separator/1]).
-:- protected([renderitem/2]).
-type(Type):- ::append(type(Type)).
-renderitem(Item, String):- ^^renderitem(Item, String),!.
-renderitem(type(Type),String):-!, ::list_separator(Separator),
-    writef::swritef(String, '%w%w', [Separator, Type]).
-render(Middle, String):- ^^render(SName),
-    (   ::item(type(Type)) ->
-        ::renderitem(type(Type), SType),
-        string_concat(SName, Middle, _1),
-        string_concat(_1, SType, String) ;
-        SName = String  ).
-render(String):-  ::render("", String).
-list_separator(Separator):-
-    ::separator_option(Name, Default),!, % Global options
-    root::option(Name, Separator, Default).
-:- end_category.
+% \begin{frame}[fragile]
+%   \frametitle{Logtalk Categories}
+%   A category of named entities
+% \begin{minted}[fontsize=\scriptsize]{logtalk}
+% :- category(named).
+% :- public([name/1, render/1]).
+% :- protected([renderitem/2]).
+% name(Name):- ::prepend(name(Name)).
+% renderitem(name(Name), String):-!, atom_string(Name, String).
+% render(String):-  % What is code generation from items
+%     ::item(name(Name)), ::renderitem(name(Name), String).
+% :-end_category.
+% \end{minted}
+% Category of named and typed entities
+% \begin{minted}[fontsize=\scriptsize]{logtalk}
+% :- category(namedtyped, extends(named)).
+% :- public([type/1,render/2, separator_option/2,list_separator/1]).
+% :- protected([renderitem/2]).
+% type(Type):- ::append(type(Type)).
+% renderitem(Item, String):- ^^renderitem(Item, String),!.
+% renderitem(type(Type),String):-!, ::list_separator(Separator),
+%     writef::swritef(String, '%w%w', [Separator, Type]).
+% render(Middle, String):- ^^render(SName),
+%     (   ::item(type(Type)) ->
+%         ::renderitem(type(Type), SType),
+%         string_concat(SName, Middle, _1),
+%         string_concat(_1, SType, String) ;
+%         SName = String  ).
+% render(String):-  ::render("", String).
+% list_separator(Separator):-
+%     ::separator_option(Name, Default),!, % Global options
+%     root::option(Name, Separator, Default).
+% :- end_category.
 
-\end{minted}
-\end{frame}
+% \end{minted}
+% \end{frame}
 
-\begin{frame}[fragile]
-  \frametitle{Access LOD data}
+% \begin{frame}[fragile]
+%   \frametitle{Access LOD data}
 
-  \begin{columns}
-\begin{column}{0.5\textwidth}
-\begin{minted}[fontsize=\scriptsize]{logtalk}
-:- category(sparql).
-:- public(query/2).
-query(Pattern,Parameters,Row):-
-    prepare(Pattern,Parameters,Query),
-    server(Host,Port,Path),
-    sparql_query(Query, Row,
-        [host(Host),port(Port),path(Path)]).
-:- protected(server/3).  % must be implemented
-                         % by a subclass.
-:- protected(prepare/3). % prepares a query
-% . . . . . . . . . .    %             string.
-:- end_category.
+%   \begin{columns}
+% \begin{column}{0.5\textwidth}
+% \begin{minted}[fontsize=\scriptsize]{logtalk}
+% :- category(sparql).
+% :- public(query/2).
+% query(Pattern,Parameters,Row):-
+%     prepare(Pattern,Parameters,Query),
+%     server(Host,Port,Path),
+%     sparql_query(Query, Row,
+%         [host(Host),port(Port),path(Path)]).
+% :- protected(server/3).  % must be implemented
+%                          % by a subclass.
+% :- protected(prepare/3). % prepares a query
+% % . . . . . . . . . .    %             string.
+% :- end_category.
 
-:- object(dbpedia, extends(sparql)).
-:- protected(server/3).
-server('dbpedia.org',80,'/sparql').
-:- public(entity_name/2).
-entity_name(Entity,Language,Name):-
-    query('select ?name where { '
-          ' %w rdfs:label ?name. '
-          'FILTER langMatches( lang(?label),'
-          ' "%w" )}', [Entity, Language],
-          row(Name)).
-:- end_object.
+% :- object(dbpedia, extends(sparql)).
+% :- protected(server/3).
+% server('dbpedia.org',80,'/sparql').
+% :- public(entity_name/2).
+% entity_name(Entity,Language,Name):-
+%     query('select ?name where { '
+%           ' %w rdfs:label ?name. '
+%           'FILTER langMatches( lang(?label),'
+%           ' "%w" )}', [Entity, Language],
+%           row(Name)).
+% :- end_object.
 
-% ?- dbpedia::entity_name(dbr:'Passport', 'ru', Name).
-\end{minted}
-\end{column}
-\begin{column}{0.5\textwidth}
-  \flushright
-\includegraphics[width=0.8\linewidth]{simple-diag.pdf}
-\end{column}
-\end{columns}
-\end{frame}
+% % ?- dbpedia::entity_name(dbr:'Passport', 'ru', Name).
+% \end{minted}
+% \end{column}
+% \begin{column}{0.5\textwidth}
+%   \flushright
+% \includegraphics[width=0.8\linewidth]{simple-diag.pdf}
+% \end{column}
+% \end{columns}
+% \end{frame}
 
 
 \begin{frame}
@@ -647,23 +646,23 @@ with the following features:
 
 \end{frame}
 
-\begin{frame}
-  \frametitle{Conclusion}
-  The following results have been obtained as for today:
-  \begin{itemize}
-  \item A technique for model representation has been developed and tested.
-  \item A programming technique using object-oriented logical language Logtalk is deviced.
-  \item Ptototypes of various transformation procedures are implemented.
-  \item Transformation tools are tested in application areas and no significant technical problems were mentioned.
-  \end{itemize}
-  Further development directions are as follows:
-  \begin{itemize}
-  \item A technique for document automatic markup with vocabulary entities.
-  \item A transformation implemenation techniques, minimizing usage of dynamic objects, targeting on macro properties of Logtalk.
-  \item Form a toolset out of existing prototypes obeing nowadays software development requirements.
-  \end{itemize}
-  The source codes are available at \url{https://github.com/isu-enterprise/icc.xmitransform}, \url{https://github.com/eugeneai/icc.mothurpim}.
-\end{frame}
+% \begin{frame}
+%   \frametitle{Conclusion}
+%   The following results have been obtained as for today:
+%   \begin{itemize}
+%   \item A technique for model representation has been developed and tested.
+%   \item A programming technique using object-oriented logical language Logtalk is deviced.
+%   \item Ptototypes of various transformation procedures are implemented.
+%   \item Transformation tools are tested in application areas and no significant technical problems were mentioned.
+%   \end{itemize}
+%   Further development directions are as follows:
+%   \begin{itemize}
+%   \item A technique for document automatic markup with vocabulary entities.
+%   \item A transformation implemenation techniques, minimizing usage of dynamic objects, targeting on macro properties of Logtalk.
+%   \item Form a toolset out of existing prototypes obeing nowadays software development requirements.
+%   \end{itemize}
+%   The source codes are available at \url{https://github.com/isu-enterprise/icc.xmitransform}, \url{https://github.com/eugeneai/icc.mothurpim}.
+% \end{frame}
 
 \begin{frame}
   \begin{center}
