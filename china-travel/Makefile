@@ -2,7 +2,8 @@
 
 LATEXMK=latexmk -lualatex -latexoption=-shell-escape
 
-TARGET=talk-mda-lod-2019-12-zh-cn
+# TARGET=talk-mda-lod-2019-12-zh-cn
+TARGET=talk-mda-lod-arch-2019-08-03
 
 run: present
 
