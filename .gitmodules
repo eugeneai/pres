@@ -1,0 +1,3 @@
+[submodule "korea-meeting"]
+	path = korea-meeting
+	url = https://github.com/eugeneai/presentation-2019-08.git
