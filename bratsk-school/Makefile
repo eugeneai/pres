@@ -1,7 +1,8 @@
 .PHONY: compile tests test-pdflatex test-lualatex test-xelatex clean
 
 # SOURCE=talk-iroha-2018-12-07.tex
-SOURCE=talk-bratsk-2019-11-07.tex
+# SOURCE=talk-bratsk-2019-11-07.tex
+SOURCE=talk-log-prog.tex
 
 #SOURCE=example.tex
 TARGET=$(SOURCE:.tex=.pdf)
@@ -28,7 +29,7 @@ $(TARGET): $(SOURCE)
 	$(LATEX) $<
 
 
-clean: 
+clean:
 	$(LATEXMK) -C $(SOURCE)
 
 # tests: test-xelatex
