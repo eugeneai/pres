@@ -154,7 +154,7 @@
   \item ``\verb|%|'' -- комментарий, простирающийся до конца строки,
   \item Программа -- набор фраз (clause):
     \begin{itemize}
-    \item факты \\ \verb|works(mario,janitor).|\\\verb|likes(mary,apple).|\\ \verb|contains(sedan,wheel,4).|\\
+    \item факты \\ \verb|works(mario,plumber).|\\\verb|likes(mary,apple).|\\ \verb|contains(sedan,wheel,4).|\\
       \verb|color(apple,red).|\\
       \verb|color(orange,orabge).|
     \item правила \\ \verb|likes(kate,X) :-   % ':-' - Если |\\
@@ -191,6 +191,25 @@
   \end{enumerate}
   % Цель лекции -- рассмотреть методику использования ЕЯ в качестве языка запросов к базе данных.
 \end{frame}
+
+\begin{frame}
+  \frametitle{Графический пользовательский интерфейс}
+  Специализирован на \textbf{унарных операциях над отдельными частями} информационного объекта.
+  \begin{center}
+    \includegraphics[width=0.4\linewidth]{pics/shot-context-menu.png}\qquad
+    \includegraphics[width=0.4\linewidth]{pics/shot-replace.png}
+  \end{center}
+  В операциях аргументы вводится в диалоговом окне (для операций с аргументами).
+
+  Более <<умные>> редакторы не используют контекстные операции (EMACS, VI, Visual Studio Code, Sublime, AutoCAD).
+\begin{quote}
+  \texttt{Alt-X replace-string}, Набирается как <<Alt-X repl str>>
+\end{quote}
+\begin{center}
+    \includegraphics[width=0.9\linewidth]{pics/shot-replace-string-emacs.png}\qquad
+  \end{center}
+\end{frame}
+
 \begin{frame}
   \frametitle{Язык}
   \begin{block}{Семиотика (наука о знаках) делится на три раздела (Моррис)}
@@ -401,7 +420,7 @@ main:
 \end{frame}
 
 \begin{frame}
-  \frametitle{Реализация программы}
+  \frametitle{Реализация программы--транслятора}
   \vfil
   \begin{center}
     \Large Пишем программу!
@@ -461,7 +480,7 @@ main:
 %        \includegraphics[width=1\linewidth]{pics/compile-stages.jpg}
 %      \end{column}
 %      \begin{column}{0.5\textwidth}
-%        Внутреннее представление программы -- абстрактное синтексическое дерево.\\[1em]
+%        Внутреннее представление программы -- абстрактное синтаксическое дерево.\\[1em]
 %        \includegraphics[width=1\linewidth]{pics/ast-c-main.png}
 %      \end{column}
 %    \end{columns}
@@ -610,6 +629,15 @@ Some sample queries:
    - which rivers run through states that border the state
      with the capital austin?
 \end{verbatim}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{GeoBase}
+  \vfil
+  \begin{center}
+    \Large Смотрим работу GeoBase!
+  \end{center}
+  \vfil
 \end{frame}
 
 \begin{frame}[fragile]
@@ -883,7 +911,7 @@ geobase(STR, X, E):-
 
 \begin{frame}
   \frametitle{Заключение}
-  Чтобы заставить компьютер понимать, что хочет пользователь надо реализовать следующие модели:
+  Чтобы компьютер понимал, что хочет пользователь надо реализовать следующие модели:
   \begin{enumerate}
   \item Грамматику языка (синтаксис),
   \item Семантику его элементов,
@@ -903,7 +931,6 @@ geobase(STR, X, E):-
     \end{column}
   \end{columns}
 \end{frame}
-
 
 \begin{frame}
   \vfill
