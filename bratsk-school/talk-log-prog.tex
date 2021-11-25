@@ -263,6 +263,17 @@
   \end{center}
 \end{frame}
 
+\begin{frame}
+  \frametitle{Типы грамматик}
+  По иерархии Ноама Хомского, грамматики делятся на \textbf{четыре} типа, каждый последующий является более ограниченным подмножеством предыдущего (но и легче поддающимся анализу):
+  \begin{itemize}
+    \item Тип 0. Неограниченные грамматики — возможны любые правила;
+    \item Тип 1. Контекстно-зависимые грамматики — левая часть может содержать один нетерминал, окруженный «контекстом»; сам нетерминал заменяется непустой последовательностью символов в правой части;
+    \item Тип 2. Контекстно-свободные грамматики — левая часть состоит из одного нетерминала;
+    \item Тип 3. Регулярные грамматики — более простые, распознаются конечными автоматами.
+  \end{itemize}
+\end{frame}
+
 \begin{frame}[fragile]
   \frametitle{Грамматика языка программирования С}
   {\ltprgsize
@@ -300,105 +311,6 @@
                    | break ;
                    | return {<expression>}? ;
 \end{verbatim}}
-\end{frame}
-
-
-\begin{frame}[fragile]
-  \frametitle{Синтаксический разбор предложения}
-  Корова трясет хвостом.\\
-  A cow shakes the tail.
-
-  \verb|% [a, cow, shakes, the, tail]|
-
-  \textbf{Грамматика:}
-  \begin{itemize}
-  \item Множество \textbf{терминальных} символов -- \{a,b,c,\ldots,z\}.  На самом деле, $\Sigma=\{a,cow,shakes,walks,\ldots\}$.
-  \item Множество \textbf{нетерминальных} символов -- \texttt{<sentence>, <noun>, <verb>, \ldots}
-  \item \textnormal{Стартовый} символ -- \texttt{<sentence>}.
-  \item \textbf{Правила} упрощенного английского языка:
-    \begin{align}
-      \label{eq:eng-gramm}
-      \langle{}sentence\rangle{} & \to  \langle{}noun group\rangle{} \langle{}verb group\rangle{} \\
-      \langle{}noun group\rangle{} & \to  \langle{}determinant\rangle{} \langle{}noun\rangle{} \\
-      \langle{}verb group\rangle{} & \to  \langle{}verb\rangle{} \langle{}noun group\rangle{} \\
-      \langle{}noun\rangle{} & \to cow\ |\ tail\ |\ \ldots \\
-      \langle{}verb\rangle{} & \to walks\ |\ shakes\ |\ \ldots \\
-      \langle{}determinant\rangle{} & \to a\ |\ the\ |\ \varepsilon\ |\ my\ |\ \ldots
-    \end{align}
-  \end{itemize}
-\end{frame}
-
-
-
-
-
-
-\begin{frame}
-  \frametitle{Графический пользовательский интерфейс}
-  Специализирован на \textbf{унарных операциях над отдельными частями} информационного объекта.
-  \begin{center}
-    \includegraphics[width=0.4\linewidth]{pics/shot-context-menu.png}\qquad
-    \includegraphics[width=0.4\linewidth]{pics/shot-replace.png}
-  \end{center}
-  В операциях аргументы вводится в диалоговом окне (для операций с аргументами).
-
-  Более <<умные>> редакторы не используют контекстные операции (EMACS, VI, Visual Studio Code, Sublime, AutoCAD).
-\begin{quote}
-  \texttt{Alt-X replace-string}, Набирается как <<Alt-X repl str>>
-\end{quote}
-\begin{center}
-    \includegraphics[width=0.9\linewidth]{pics/shot-replace-string-emacs.png}\qquad
-  \end{center}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Требования к методике}
-  \textbf{Чего бы мы хотели от такой системы?}
-  \begin{enumerate}
-  \item Представление запросов в терминологии предметной области ИС;
-  \item Выполнение двуаргументных операций над объектами целого класса (не только с экземплярами);
-  \item Система должна синтезировать ответ/действие на основе
-    \begin{itemize}
-    \item введенного запроса/команды на ЕЯ,
-    \item данных и знаний предметной области;
-    \end{itemize}
-  \item Расширяемость/замена предметной области;
-  \item (в идеале) задавать утончающие вопросы;
-  \item (в идеале) обучаться (синонимы, новые декларативные конструкции).
-  \end{enumerate}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Пакеты прикладных программ}
-  \begin{center}
-    \includegraphics[width=1\linewidth]{pics/applications-architecture.jpg}
-  \end{center}
-  \texttt{input  a.txt multipy by b.txt output c.txt}
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Транслятор языка программирования}
-   \begin{columns}
-     \begin{column}{0.5\textwidth}
-       \includegraphics[width=1\linewidth]{pics/compile-stages.jpg}
-     \end{column}
-     \begin{column}{0.5\textwidth}
-       Внутреннее представление программы -- абстрактное синтексическое дерево.\\[1em]
-       \includegraphics[width=1\linewidth]{pics/ast-c-main.png}
-     \end{column}
-   \end{columns}
- \end{frame}
-
-\begin{frame}
-  \frametitle{Типы грамматик}
-  По иерархии Ноама Хомского, грамматики делятся на \textbf{четыре} типа, каждый последующий является более ограниченным подмножеством предыдущего (но и легче поддающимся анализу):
-  \begin{itemize}
-    \item Тип 0. Неограниченные грамматики — возможны любые правила;
-    \item Тип 1. Контекстно-зависимые грамматики — левая часть может содержать один нетерминал, окруженный «контекстом»; сам нетерминал заменяется непустой последовательностью символов в правой части;
-    \item Тип 2. Контекстно-свободные грамматики — левая часть состоит из одного нетерминала;
-    \item Тип 3. Регулярные грамматики — более простые, распознаются конечными автоматами.
-  \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -464,77 +376,170 @@ main:
  \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Трансляция предложений естественного языка}
-   \begin{columns}
-     \begin{column}{0.5\textwidth}
-\begin{minted}{python}
-grammar = nltk.parse_cfg("""
-S  → NP VP
-NP → Det Nom | Det Nom PP | PropN
-Nom → Adj Nom | N
-VP → V | V NP | V NP PP | V S
-PP → P NP
+  \frametitle{Синтаксический разбор предложения}
+  Корова трясет хвостом.\\
+  A cow shakes the tail.
 
-PropN → 'John' | 'Mary'
-Det → 'the' | 'a'
-N → 'man' | 'woman' | 'park' | 'dog' |
-   'lead' | 'telescope' | 'butterfly'
-Adj  → 'fierce' | 'black' |  'big' |
-   'European'
-V → 'saw' | 'chased' | 'barked'  |
-   'disappeared' | 'said' | 'reported'
-P → 'in' | 'with'
-""")
-\end{minted}
-     \end{column}
-     \begin{column}{0.5\textwidth}
-       \includegraphics[width=0.9\linewidth]{pics/book-tree-14.png}
-       \includegraphics[width=0.9\linewidth]{pics/book-tree-15.png}
-     \end{column}
-   \end{columns}
- \end{frame}
+  \verb|% [a, cow, shakes, the, tail]|
 
-\begin{frame}
-  \frametitle{Linked grammar (грамматики связей)}
-  \begin{columns}
-    \begin{column}{0.4\textwidth}
-      \includegraphics[width=0.9\linewidth]{pics/l-g-parts.png}
-      \includegraphics[width=0.9\linewidth]{pics/l-g-table.png}
-    \end{column}
-    \begin{column}{0.6\textwidth}
-      Последовательность слов находится в linked grammar, если существует способ нарисовать связи между словами, такие что\\[1em]
-%      Sequence of words is in the language of link grammar if there is a way to draw links between words in such a way that
-
-      Связи не пересекаются (\textbf{планарный граф});\\[0.5em]
-      Все слова последовательности соединены связями (\textbf{связность});\\[0.5em]
-      Все связи удовлетворяют ограничениям (\textbf{непротиворечивость})\\[0.5em]
-      Два слова соединены одной и только одной связью (\textbf{исключительность}).\\[0.5em]
-    \end{column}
-  \end{columns}
+  \textbf{Грамматика:}
+  \begin{itemize}
+  \item Множество \textbf{терминальных} символов -- \{a,b,c,\ldots,z\}.  На самом деле, $\Sigma=\{a,cow,shakes,walks,\ldots\}$.
+  \item Множество \textbf{нетерминальных} символов -- \texttt{<sentence>, <noun>, <verb>, \ldots}
+  \item \textnormal{Стартовый} символ -- \texttt{<sentence>}.
+  \item \textbf{Правила} упрощенного английского языка:
+    \begin{align}
+      \label{eq:eng-gramm}
+      \langle{}sentence\rangle{} & \to  \langle{}noun group\rangle{} \langle{}verb group\rangle{} \\
+      \langle{}noun group\rangle{} & \to  \langle{}determinant\rangle{} \langle{}noun\rangle{} \\
+      \langle{}verb group\rangle{} & \to  \langle{}verb\rangle{} \langle{}noun group\rangle{} \\
+      \langle{}noun\rangle{} & \to cow\ |\ tail\ |\ \ldots \\
+      \langle{}verb\rangle{} & \to walks\ |\ shakes\ |\ \ldots \\
+      \langle{}determinant\rangle{} & \to a\ |\ the\ |\ \varepsilon\ |\ my\ |\ \ldots
+    \end{align}
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Примеры разбора Linked grammar}
-  \centering
-  “The cat chased a snake”\\
-  \includegraphics[width=0.6\linewidth]{pics/l-g-good-ex.png}\\[1em]
-  “The Mary chased cat”\\
-  \includegraphics[width=0.6\linewidth]{pics/l-g-bad-ex.png}
+  \frametitle{Реализация программы}
+  \vfil
+  \begin{center}
+    \Large Пишем программу!
+  \end{center}
+  \vfil
 \end{frame}
 
-\begin{frame}
-  \frametitle{Примеры разбора Linked grammar}
-  \centering
-  “A dog arrived with a bone”\\
-  “A dog with a bone arrived”\\
-  \includegraphics[width=0.6\linewidth]{pics/l-g-multi-ex.png}\\[1em]
-\end{frame}
 
-\begin{frame}
-  \frametitle{Примеры разбора Linked grammar}
-  \centering
-  \includegraphics[width=0.8\linewidth]{pics/l-g-prog-ex.png}\\[1em]
-\end{frame}
+% \begin{frame}
+%   \frametitle{Графический пользовательский интерфейс}
+%   Специализирован на \textbf{унарных операциях над отдельными частями} информационного объекта.
+%   \begin{center}
+%     \includegraphics[width=0.4\linewidth]{pics/shot-context-menu.png}\qquad
+%     \includegraphics[width=0.4\linewidth]{pics/shot-replace.png}
+%   \end{center}
+%   В операциях аргументы вводится в диалоговом окне (для операций с аргументами).
+
+%   Более <<умные>> редакторы не используют контекстные операции (EMACS, VI, Visual Studio Code, Sublime, AutoCAD).
+% \begin{quote}
+%   \texttt{Alt-X replace-string}, Набирается как <<Alt-X repl str>>
+% \end{quote}
+% \begin{center}
+%     \includegraphics[width=0.9\linewidth]{pics/shot-replace-string-emacs.png}\qquad
+%   \end{center}
+% \end{frame}
+
+% \begin{frame}
+%   \frametitle{Требования к методике}
+%   \textbf{Чего бы мы хотели от такой системы?}
+%   \begin{enumerate}
+%   \item Представление запросов в терминологии предметной области ИС;
+%   \item Выполнение двуаргументных операций над объектами целого класса (не только с экземплярами);
+%   \item Система должна синтезировать ответ/действие на основе
+%     \begin{itemize}
+%     \item введенного запроса/команды на ЕЯ,
+%     \item данных и знаний предметной области;
+%     \end{itemize}
+%   \item Расширяемость/замена предметной области;
+%   \item (в идеале) задавать утончающие вопросы;
+%   \item (в идеале) обучаться (синонимы, новые декларативные конструкции).
+%   \end{enumerate}
+% \end{frame}
+
+% \begin{frame}
+%   \frametitle{Пакеты прикладных программ}
+%   \begin{center}
+%     \includegraphics[width=1\linewidth]{pics/applications-architecture.jpg}
+%   \end{center}
+%   \texttt{input  a.txt multipy by b.txt output c.txt}
+% \end{frame}
+
+
+% \begin{frame}
+%   \frametitle{Транслятор языка программирования}
+%    \begin{columns}
+%      \begin{column}{0.5\textwidth}
+%        \includegraphics[width=1\linewidth]{pics/compile-stages.jpg}
+%      \end{column}
+%      \begin{column}{0.5\textwidth}
+%        Внутреннее представление программы -- абстрактное синтексическое дерево.\\[1em]
+%        \includegraphics[width=1\linewidth]{pics/ast-c-main.png}
+%      \end{column}
+%    \end{columns}
+%  \end{frame}
+
+
+% \begin{frame}[fragile]
+%   \frametitle{Трансляция предложений естественного языка}
+%    \begin{columns}
+%      \begin{column}{0.5\textwidth}
+% \begin{minted}{python}
+% grammar = nltk.parse_cfg("""
+% S  → NP VP
+% NP → Det Nom | Det Nom PP | PropN
+% Nom → Adj Nom | N
+% VP → V | V NP | V NP PP | V S
+% PP → P NP
+
+% PropN → 'John' | 'Mary'
+% Det → 'the' | 'a'
+% N → 'man' | 'woman' | 'park' | 'dog' |
+%    'lead' | 'telescope' | 'butterfly'
+% Adj  → 'fierce' | 'black' |  'big' |
+%    'European'
+% V → 'saw' | 'chased' | 'barked'  |
+%    'disappeared' | 'said' | 'reported'
+% P → 'in' | 'with'
+% """)
+% \end{minted}
+%      \end{column}
+%      \begin{column}{0.5\textwidth}
+%        \includegraphics[width=0.9\linewidth]{pics/book-tree-14.png}
+%        \includegraphics[width=0.9\linewidth]{pics/book-tree-15.png}
+%      \end{column}
+%    \end{columns}
+%  \end{frame}
+
+% \begin{frame}
+%   \frametitle{Linked grammar (грамматики связей)}
+%   \begin{columns}
+%     \begin{column}{0.4\textwidth}
+%       \includegraphics[width=0.9\linewidth]{pics/l-g-parts.png}
+%       \includegraphics[width=0.9\linewidth]{pics/l-g-table.png}
+%     \end{column}
+%     \begin{column}{0.6\textwidth}
+%       Последовательность слов находится в linked grammar, если существует способ нарисовать связи между словами, такие что\\[1em]
+% %      Sequence of words is in the language of link grammar if there is a way to draw links between words in such a way that
+
+%       Связи не пересекаются (\textbf{планарный граф});\\[0.5em]
+%       Все слова последовательности соединены связями (\textbf{связность});\\[0.5em]
+%       Все связи удовлетворяют ограничениям (\textbf{непротиворечивость})\\[0.5em]
+%       Два слова соединены одной и только одной связью (\textbf{исключительность}).\\[0.5em]
+%     \end{column}
+%   \end{columns}
+% \end{frame}
+
+% \begin{frame}
+%   \frametitle{Примеры разбора Linked grammar}
+%   \centering
+%   “The cat chased a snake”\\
+%   \includegraphics[width=0.6\linewidth]{pics/l-g-good-ex.png}\\[1em]
+%   “The Mary chased cat”\\
+%   \includegraphics[width=0.6\linewidth]{pics/l-g-bad-ex.png}
+% \end{frame}
+
+% \begin{frame}
+%   \frametitle{Примеры разбора Linked grammar}
+%   \centering
+%   “A dog arrived with a bone”\\
+%   “A dog with a bone arrived”\\
+%   \includegraphics[width=0.6\linewidth]{pics/l-g-multi-ex.png}\\[1em]
+% \end{frame}
+
+% \begin{frame}
+%   \frametitle{Примеры разбора Linked grammar}
+%   \centering
+%   \includegraphics[width=0.8\linewidth]{pics/l-g-prog-ex.png}\\[1em]
+% \end{frame}
 
 \begin{frame}[fragile,fragile]
   \frametitle{Информационная система GeoBase. База данных}
@@ -686,11 +691,11 @@ geobase(STR, X, E):-
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Корпус и источник данных}
+  \frametitle{Корпус, источник данных}
   \texttt{population of Washington}\\
   Население штата или города?\\
-  \textbf{1?} \texttt{schema('population','of','city').}\\
-  \textbf{2?} \texttt{schema('population','of','state').}\\
+  \textbf{?-} \texttt{schema('population','of','city').}\\
+  \textbf{?-} \texttt{schema('population','of','state').}\\
   Корпус реализован при помощи реструктуризации базы данных.
 \begin{minted}{prolog}
   % . . . . . . . . .
@@ -758,133 +763,146 @@ geobase(STR, X, E):-
 \end{minted}
 \end{frame}
 
-\begin{frame}[fragile]
-  \frametitle{Семантический WEB}
-  В настоящее время появились новые варианты представления предметной области, при этом
-  \begin{itemize}
-  \item сущности идентифицируются, как правило, глобально;
-  \item разработаны стандарты представления информации в конкретных предметных областях (oa, prov, foaf, \ldots);
-  \item стандартизированы базовые онтологии (RDF, RDFs, dc, dcterms), при помощи которых задаются предметные онтологии;
-  \item исследуются свойства логик описаний (DL, SHOIND, \ldots);
-  \item предложены способы;
-  \item созданы форматы представления данных (RDF, RDFa, OWL, JSON-LD, \ldots);
-  \item существуют сервисы предоставления онтологической информации (dbpedia.org, lov.linkeddata.es/dataset/lov/), программное обеспечение создания таких сервисов (ClioPatria);
-  \item язык запросов к онтологическим сервисам (SPARQL), технологии распределенных запросов к сервисам;
-  \item инструментальные средства моделирования предметной области с выдачей в стандартные форматы (Proteg\'e).
-  \end{itemize}
-\end{frame}
+% \begin{frame}[fragile]
+%   \frametitle{Семантический WEB}
+%   В настоящее время появились новые варианты представления предметной области, при этом
+%   \begin{itemize}
+%   \item сущности идентифицируются, как правило, глобально;
+%   \item разработаны стандарты представления информации в конкретных предметных областях (oa, prov, foaf, \ldots);
+%   \item стандартизированы базовые онтологии (RDF, RDFs, dc, dcterms), при помощи которых задаются предметные онтологии;
+%   \item исследуются свойства логик описаний (DL, SHOIND, \ldots);
+%   \item предложены способы;
+%   \item созданы форматы представления данных (RDF, RDFa, OWL, JSON-LD, \ldots);
+%   \item существуют сервисы предоставления онтологической информации (dbpedia.org, lov.linkeddata.es/dataset/lov/), программное обеспечение создания таких сервисов (ClioPatria);
+%   \item язык запросов к онтологическим сервисам (SPARQL), технологии распределенных запросов к сервисам;
+%   \item инструментальные средства моделирования предметной области с выдачей в стандартные форматы (Proteg\'e).
+%   \end{itemize}
+% \end{frame}
 
-\begin{frame}[fragile]
-  \frametitle{Онтология Open Annotation (oa)}
-  \begin{center}
-    \includegraphics[width=1\linewidth]{pics/Open-Annotation_CB_Bookmarking_and_Semantically_Tagging_A_webpage_spec20130128.png}
-  \end{center}
-\end{frame}
+% \begin{frame}[fragile]
+%   \frametitle{Онтология Open Annotation (oa)}
+%   \begin{center}
+%     \includegraphics[width=1\linewidth]{pics/Open-Annotation_CB_Bookmarking_and_Semantically_Tagging_A_webpage_spec20130128.png}
+%   \end{center}
+% \end{frame}
 
-\begin{frame}[fragile]
-  \frametitle{Инструменты: словарь связных данных (LOV)}
-  \begin{center}
-    \includegraphics[width=0.8\linewidth]{pics/lov-main.png}
-  \end{center}
-\end{frame}
+% \begin{frame}[fragile]
+%   \frametitle{Инструменты: словарь связных данных (LOV)}
+%   \begin{center}
+%     \includegraphics[width=0.8\linewidth]{pics/lov-main.png}
+%   \end{center}
+% \end{frame}
 
-\begin{frame}[fragile]
-  \frametitle{Инструменты: браузер онтологий}
-  \begin{center}
-    \includegraphics[width=0.8\linewidth]{pics/lov-visual.png}
-  \end{center}
-\end{frame}
+% \begin{frame}[fragile]
+%   \frametitle{Инструменты: браузер онтологий}
+%   \begin{center}
+%     \includegraphics[width=0.8\linewidth]{pics/lov-visual.png}
+%   \end{center}
+% \end{frame}
 
-\begin{frame}[fragile]
-  \frametitle{Инструменты: сервер онтологий ClioPatria}
-  \begin{center}
-    \includegraphics[width=0.8\linewidth]{pics/ClioPatria-shot.png}
-  \end{center}
-\end{frame}
+% \begin{frame}[fragile]
+%   \frametitle{Инструменты: сервер онтологий ClioPatria}
+%   \begin{center}
+%     \includegraphics[width=0.8\linewidth]{pics/ClioPatria-shot.png}
+%   \end{center}
+% \end{frame}
 
-\begin{frame}[fragile]
-  \frametitle{Инструменты: редактор онтологий Proteg\'e}
+% \begin{frame}[fragile]
+%   \frametitle{Инструменты: редактор онтологий Proteg\'e}
+%   \begin{columns}
+%     \begin{column}{0.4\textwidth}
+%       \includegraphics[width=1\linewidth]{pics/NLP-fault-tbox-shot.png}
+%     \end{column}
+%     \begin{column}{0.6\textwidth}
+%       \includegraphics[width=1\linewidth]{pics/NLP-fault-abox-shot.png}
+%     \end{column}
+%   \end{columns}
+% \end{frame}
+
+% \begin{frame}[fragile]
+%   \frametitle{Модификация GeoBase на основе Semantic WEB}
+% \begin{minted}{prolog}
+% schema('fault','in','continent').  % Связь с терминами GeoBase
+% schema('fault','with','feature').
+% schema('name','of','fault').       %
+% % schema('feature','of','fault').  % Это отношение находится в T-Box Faults''
+
+% % <<Загрузка>> онтологий
+% schema(Prop, 'of', SubjName):-     % используется на этапе трансляции
+%         var(SubjName),
+%         geob_prop(Prop,_).
+
+% schema(Prop, 'of', SubjName):-     % используется на этапе интерпретации
+%         nonvar(SubjName),          % задан конкретный класс
+%         geob_prop(Prop, GProp),
+%         geob_ent_class(SubjName, Subj),
+%         rdf_reachable(Subj, rdfs:subClassOf, Parent),
+%         rdf(GProp, rdfs:domain, Parent),!.
+
+% geob_prop(Prop, GProp):-           % Проверка свойства
+%         rdf_global_id(geob:Prop, GProp),
+%         rdf(GProp,rdf:type,owl:'ObjectProperty'),!.
+
+% geob_class(Class, GClass):-        % Проверка класса
+%         rdf_global_id(geob:Class, GClass),
+%         rdf(GClass,rdf:type,owl:'Class'),!.
+
+% geob_ent_class(Ent, Class):-
+%         sub_atom(Ent,0,1,R,H),
+%         sub_atom(Ent,1,R,0,T),
+%         string_upper(H,U),
+%         atom_concat(U,T,GEnt),
+%         geob_class(GEnt, Class).
+
+% geob_ent(E, A):-
+%         nonvar(E),
+%         geob_ent_class(E,Class),
+%         rdf(A, rdf:type, Class, geodata). % Сущность онтологии geodata
+% \end{minted}
+% \end{frame}
+
+% \begin{frame}[fragile]
+%   \frametitle{Интерфейс пользователя GeoBase + ActiveFaults}
+%   \begin{center}
+%     \includegraphics[width=1\linewidth]{pics/Geobase-ui.png}
+%   \end{center}
+% \end{frame}
+
+% \begin{frame}[fragile]
+%   \frametitle{Схемы данных из моделей ИС}
+%   В разработке программного обеспечения используются модели, представляющие объекты, бизнес-процессы и организационную систему предприятия (UML-2.4, SysML, BPMN-2.0, CMMN).
+%   \begin{enumerate}
+%   \item Формирование модели при помощи редакторов;
+%   \item Экспорт модели в формат XMI;
+%   \item Преобразование XMI в формат онтологии \verb|<subject, predicate, object>|;
+%   \item Преобразование базы данных в формат онтологии, или реализация адаптера;
+%   \item Настройка связей с основной схемой данных;
+%   \item Настройка корпуса, который также можно организовать при помощи адаптера базы данных.
+%   \end{enumerate}
+% \end{frame}
+
+\begin{frame}
+  \frametitle{Заключение}
+  Чтобы заставить компьютер понимать, что хочет пользователь надо реализовать следующие модели:
+  \begin{enumerate}
+  \item Грамматику языка (синтаксис),
+  \item Семантику его элементов,
+  \item Прагматику:
+    \begin{itemize}
+    \item Соответствие предложений языка смыслам и действиям, для этого всегда требуется,
+    \item Модель предметной области.
+    \end{itemize}
+  \end{enumerate}
   \begin{columns}
-    \begin{column}{0.4\textwidth}
-      \includegraphics[width=1\linewidth]{pics/NLP-fault-tbox-shot.png}
+    \begin{column}{0.5\linewidth}
+      Актуальные (хайповые) проекты по теме -- программирование \textbf{навыков} голосовых помощников (Алиса, Маруса, Сири, G-Ноу, Алекса, Робин, Сяо-Ай, Олег, Дуся, Горыныч, Тайп, Агрегат).\\[1em]
+      Умный дом.
     \end{column}
-    \begin{column}{0.6\textwidth}
-      \includegraphics[width=1\linewidth]{pics/NLP-fault-abox-shot.png}
+    \begin{column}{0.6\linewidth}
+      \includegraphics[width=\linewidth]{pics/flat.jpg}
     \end{column}
   \end{columns}
 \end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{Модификация GeoBase на основе Semantic WEB}
-\begin{minted}{prolog}
-schema('fault','in','continent').  % Связь с терминами GeoBase
-schema('fault','with','feature').
-schema('name','of','fault').       %
-% schema('feature','of','fault').  % Это отношение находится в T-Box Faults''
-
-% <<Загрузка>> онтологий
-schema(Prop, 'of', SubjName):-     % используется на этапе трансляции
-        var(SubjName),
-        geob_prop(Prop,_).
-
-schema(Prop, 'of', SubjName):-     % используется на этапе интерпретации
-        nonvar(SubjName),          % задан конкретный класс
-        geob_prop(Prop, GProp),
-        geob_ent_class(SubjName, Subj),
-        rdf_reachable(Subj, rdfs:subClassOf, Parent),
-        rdf(GProp, rdfs:domain, Parent),!.
-
-geob_prop(Prop, GProp):-           % Проверка свойства
-        rdf_global_id(geob:Prop, GProp),
-        rdf(GProp,rdf:type,owl:'ObjectProperty'),!.
-
-geob_class(Class, GClass):-        % Проверка класса
-        rdf_global_id(geob:Class, GClass),
-        rdf(GClass,rdf:type,owl:'Class'),!.
-
-geob_ent_class(Ent, Class):-
-        sub_atom(Ent,0,1,R,H),
-        sub_atom(Ent,1,R,0,T),
-        string_upper(H,U),
-        atom_concat(U,T,GEnt),
-        geob_class(GEnt, Class).
-
-geob_ent(E, A):-
-        nonvar(E),
-        geob_ent_class(E,Class),
-        rdf(A, rdf:type, Class, geodata). % Сущность онтологии geodata
-\end{minted}
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{Интерфейс пользователя GeoBase + ActiveFaults}
-  \begin{center}
-    \includegraphics[width=1\linewidth]{pics/Geobase-ui.png}
-  \end{center}
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{Схемы данных из моделей ИС}
-  В разработке программного обеспечения используются модели, представляющие объекты, бизнес-процессы и организационную систему предприятия (UML-2.4, SysML, BPMN-2.0, CMMN).
-  \begin{enumerate}
-  \item Формирование модели при помощи редакторов;
-  \item Экспорт модели в формат XMI;
-  \item Преобразование XMI в формат онтологии \verb|<subject, predicate, object>|;
-  \item Преобразование базы данных в формат онтологии, или реализация адаптера;
-  \item Настройка связей с основной схемой данных;
-  \item Настройка корпуса, который также можно организовать при помощи адаптера базы данных.
-  \end{enumerate}
-\end{frame}
-
-
-% \begin{frame}
-%   \frametitle{Заключение}
-%   \begin{enumerate}
-%   \item
-%   \item
-%   \item
-%   \end{enumerate}
-% \end{frame}
 
 
 \begin{frame}
